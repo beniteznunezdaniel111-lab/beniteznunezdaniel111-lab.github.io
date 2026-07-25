@@ -703,6 +703,16 @@ const I18N = {
   }
 };
 
+/* ════════════════════════════════════════════════════════════
+   2 · WHATSAPP  —  número y mensaje predeterminado
+   ════════════════════════════════════════════════════════════ */
+const WA_PHONE = '34627280535';   // sin + ni espacios
+
+function updateWaLinks(){
+  const url = 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(I18N[LANG].wa_msg);
+  document.querySelectorAll('.js-wa').forEach(a => a.href = url);
+}
+
 let LANG='es';
 function setLang(lang){
   LANG=lang;
@@ -722,16 +732,6 @@ document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',
   const n=(navigator.language||'es').toLowerCase();
   setLang(s||(n.startsWith('es')?'es':'en'));
 })();
-
-/* ════════════════════════════════════════════════════════════
-   2 · WHATSAPP  —  número y mensaje predeterminado
-   ════════════════════════════════════════════════════════════ */
-const WA_PHONE = '34627280535';   // sin + ni espacios
-
-function updateWaLinks(){
-  const url = 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(I18N[LANG].wa_msg);
-  document.querySelectorAll('.js-wa').forEach(a => a.href = url);
-}
 
 /* ════════════════════════════════════════════════════════════
    3 · COMPARTIR
